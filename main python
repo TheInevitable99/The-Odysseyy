@@ -1,0 +1,59 @@
+import numpy as np
+import pandas as pd
+import datetime
+import matplotlib.pyplot as plt
+
+info = pd.read_csv("C:\\Users\\radit\\Downloads\\KATEMAHANKAL (1).csv")
+
+date=info['DATE']
+source=info['ORIGIN']
+dest=info['DESTINATION']
+Mode=info['MODE']
+print(" Welcome to The Odyssey ")
+print("  ______________/|")
+print(" (_____    ______|"  )  
+print("       \  /      ")
+print("        \/       ")
+info.shape
+print('''
+
+
+''')
+print(info)
+def ploting (xco , yco) :
+    info.plot(xco,yco)
+print(" Enter to analyse ")
+print( " Date , SOURCE , DESTINATION , Mode , CATEGORY , GENDER  , TYPE  ")
+sh=input("Enter for x co-ordinate")
+dh=input("Enter for y co-ordinate")
+if sh!= Date or SOURCE or  DESTINATION or  Mode or CATEGORY or GENDER  or  TYPE or AGE :
+    sh=input("Invalid Input , please re enter")
+elif dh!= Date or SOURCE or  DESTINATION or  Mode or CATEGORY or GENDER  or  TYPE or AGE :
+    dh=input("Invalid Input , please re enter")
+plotting(sh,dh)
+YOUTH = info[(info['age']>=18) & (info['age'] <=32)]
+middleage = info[(info['age']>32) & (info['age'] <=55)]
+oldage = info[(info['age']<55)]
+x=np.array([Youth['AGE'].count(),middleage['AGE'].count(),oldage['AGE'].count()])
+mylabels= ["YOUTH" , "MIDDLE_AGE" , "OLD_AGE"]
+plt.title('Genre' , fontsize=30)
+plt.pie(x,labels=mylabels , autopct= "%.1f%%")
+plt.show()
+print('''Type 1 for Tourism mode analysis
+Type 2 f
+Type 3 for pallindrome
+Type 4 for exit''')
+
+print("")
+
+ty=0
+while (ty !=4) : # For menu driven
+    ty = int(input("enter your choice "))
+    if (ty==1) : 
+        info['MODE'].value_counts().plot(kind='bar' , figsize=(12,12))
+    elif (ty==2) :
+        info['DATE'].value_counts().plot(kind='bar' , figsize=(12,12))
+    elif (ty==3) :
+        info['ORIGIN'].value_counts().plot(kind='bar' , figsize=(12,12))
+    else :
+        print("Invalid Input")
